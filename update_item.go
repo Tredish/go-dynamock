@@ -27,6 +27,12 @@ func (e *UpdateItemExpectation) Updates(updateExpression *string) *UpdateItemExp
 	return e
 }
 
+// WithUpdateValues -- method for setting the values that will be used in conjunction with the update expression
+func (e *UpdateItemExpectation) WithUpdateValues(expressionAttributeValues map[string]*dynamodb.AttributeValue) *UpdateItemExpectation {
+	e.expressionAttributeValues = expressionAttributeValues
+	return e
+}
+
 // WillReturns - method for set desired result
 func (e *UpdateItemExpectation) WillReturns(res dynamodb.UpdateItemOutput) *UpdateItemExpectation {
 	e.output = &res
